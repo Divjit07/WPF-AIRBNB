@@ -1,0 +1,55 @@
+<h2 class="gold">Delete Listing</h2>
+
+{{!-- SEARCH CARD --}}
+<div class="neo-card delete-search-card">
+    <h3 class="gold">Search Listing by ID</h3>
+
+    <form method="get" action="/airbnb_hbs/delete" class="neo-form">
+
+        <div class="form-group">
+            <label class="neo-label">Listing ID</label>
+            <input type="text" name="id" class="neo-input" value="{{queryId}}" placeholder="Enter ID..." required>
+        </div>
+
+        <button type="submit" class="btn search-btn">Search ✦</button>
+    </form>
+</div>
+
+{{#if listing}}
+
+<hr class="neo-divider">
+
+<h3 class="gold" style="margin-bottom: 12px;">Confirm Deletion</h3>
+
+<div class="neo-card delete-warning-card">
+
+    <p class="delete-warning-text">
+        This action cannot be undone. Do you want to permanently delete this listing?
+    </p>
+
+    <div class="detail-row">
+        <span class="detail-label">ID</span>
+        <span class="detail-value">{{listing.id}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Name</span>
+        <span class="detail-value">{{listing.NAME}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Price</span>
+        <span class="detail-value">{{listing.price}}</span>
+    </div>
+
+    <form action="/airbnb_hbs/delete/{{listing.id}}" method="post">
+
+        <button type="submit" class="btn delete-confirm-btn">
+            Confirm Delete ✖
+        </button>
+
+    </form>
+
+</div>
+
+{{/if}}

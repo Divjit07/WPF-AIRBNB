@@ -1,0 +1,364 @@
+/* =========================
+   RESET + GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.neo-body {
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  background: #050608;
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Limit page width for everything */
+.neo-body > header,
+.neo-body > footer,
+.neo-main,
+.neo-nav {
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* =========================
+   SIMPLE TOP HEADER (NAME / NUMBER)
+========================= */
+.neo-body > header:not(.neo-nav) {
+  margin: 18px auto 8px;
+  padding: 8px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.95rem;
+  color: #f5f5f5;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.neo-nav {
+  margin: 6px auto 18px;
+  padding: 10px 16px;
+  background: #0f1117;
+  border-radius: 10px;
+  border: 1px solid #262935;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.neo-logo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #f7d778;
+}
+
+.neo-logo span {
+  color: #e1b95e;
+}
+
+.neo-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Simple nav link */
+.neo-link {
+  color: #f5f5f5;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.neo-link:hover {
+  background: #f7d778;
+  color: #101217;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.neo-dropdown {
+  position: relative;
+}
+
+/* The button itself */
+.neo-dropbtn {
+  border: none;
+  background: #f7d778;
+  color: #191c24;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.neo-dropbtn .arrow {
+  font-size: 0.85em;
+}
+
+/* Fix: Panel only wide enough for content, not full screen */
+.neo-dropdown-panel {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #11141b;
+  border-radius: 8px;
+  border: 1px solid #262935;
+  min-width: 170px;
+  max-width: 240px;
+  padding: 4px 0;
+  display: none;      /* hidden by default */
+  z-index: 20;
+}
+
+/* Show on hover */
+.neo-dropdown:hover .neo-dropdown-panel {
+  display: block;
+}
+
+/* Items in dropdown */
+.neo-dd-item {
+  display: block;
+  padding: 8px 12px;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.93rem;
+}
+
+.neo-dd-item:hover {
+  background: #252938;
+  color: #f7d778;
+}
+
+/* =========================
+   MAIN CONTENT AREA
+========================= */
+
+.neo-main {
+  margin: 0 auto 20px;
+  padding: 18px 20px 24px;
+  background: #0b0d12;
+  border-radius: 10px;
+  border: 1px solid #262935;
+}
+
+/* Headings */
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #f7d778;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 14px 0 8px;
+}
+
+/* Paragraph spacing */
+p {
+  margin-bottom: 6px;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid #262935;
+  margin: 18px 0;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+form {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea,
+select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #333745;
+  background: #050609;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #f7d778;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn-primary,
+.page-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* main / submit buttons */
+button,
+.btn-primary,
+.page-btn {
+  background: #f7d778;
+  color: #14171f;
+}
+
+button:hover,
+.btn-primary:hover,
+.page-btn:hover {
+  background: #e1b95e;
+}
+
+/* Danger (used for delete confirmation inline style will still work, this improves default) */
+.btn-danger {
+  background: #d14b43;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #b43a33;
+}
+
+/* =========================
+   TABLES (All Listings)
+========================= */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #262935;
+  text-align: left;
+}
+
+.table th {
+  color: #f7d778;
+  font-weight: 600;
+  background: #10131a;
+}
+
+.table tr:nth-child(even) {
+  background: #10131a;
+}
+
+.table tr:hover {
+  background: #1b1f2b;
+}
+
+/* View link inside table */
+.table a {
+  color: #f7d778;
+  text-decoration: none;
+}
+
+.table a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-number {
+  font-size: 0.9rem;
+}
+
+/* =========================
+   SIMPLE CARD (for "Listing Details" etc.)
+========================= */
+
+.card {
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #10131a;
+  border: 1px solid #262935;
+  margin: 12px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.neo-body > footer {
+  margin: 8px auto 20px;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #a5a9b8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 640px) {
+  .neo-body > header:not(.neo-nav) {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .neo-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .neo-menu {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

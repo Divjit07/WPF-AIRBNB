@@ -1,0 +1,45 @@
+<h2 class="gold">Listing Details</h2>
+
+{{#if listing}}
+
+<div class="listing-card neo-card">
+    
+    <div class="detail-row">
+        <span class="detail-label">ID</span>
+        <span class="detail-value">{{listing.id}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Name</span>
+        <span class="detail-value">{{listing.NAME}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Neighbourhood</span>
+        <span class="detail-value">{{listing.neighbourhood}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Price</span>
+        <span class="detail-value">{{listing.price}}</span>
+    </div>
+
+</div>
+
+<div class="detail-actions">
+    <a href="/airbnb_hbs/update?id={{listing.id}}" class="action-btn update-btn">
+        Update Listing ✦
+    </a>
+
+    <a href="/airbnb_hbs/delete?id={{listing.id}}" class="action-btn delete-btn">
+        Delete Listing ✖
+    </a>
+</div>
+
+{{else}}
+
+<div class="neo-alert">
+    <p>No listing found.</p>
+</div>
+
+{{/if}}

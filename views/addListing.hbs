@@ -1,0 +1,21 @@
+<h2 class="neo-title">➕ Add New Airbnb Listing</h2>
+
+<div class="neo-card">
+    <form action="/airbnb_hbs/add" method="post" class="neo-form">
+
+        <label class="neo-label">Listing ID</label>
+        <input type="text" name="id" class="neo-input" placeholder="Enter unique ID…" required>
+
+        <label class="neo-label">Name</label>
+        <input type="text" name="NAME" class="neo-input" placeholder="Enter listing name…" required>
+
+        <label class="neo-label">Neighbourhood</label>
+        <input type="text" name="neighbourhood" class="neo-input" placeholder="e.g. Downtown, Toronto">
+
+        <label class="neo-label">Price ($)</label>
+        <input type="number" name="price" class="neo-input" placeholder="100" required>
+
+        <button type="submit" class="neo-btn-primary">➕ Add Listing</button>
+
+    </form>
+</div>

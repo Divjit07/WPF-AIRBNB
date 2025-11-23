@@ -1,0 +1,45 @@
+<h2 class="gold">All Airbnb Listings</h2>
+
+<div class="listings-wrapper">
+
+    <table class="table neo-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Neighbourhood</th>
+                <th>Price</th>
+                <th>View</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each listings}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{NAME}}</td>
+                <td>{{neighbourhood}}</td>
+                <td>{{price}}</td>
+                <td>
+                    <a href="/airbnb_hbs/view/{{id}}" class="view-btn">
+                        View →
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        {{#if hasPreviousPage}}
+        <a class="page-btn" href="/airbnb_hbs/list?page={{subtract currentPage 1}}">← Previous</a>
+        {{/if}}
+
+        <span class="page-number">Page {{currentPage}}</span>
+
+        {{#if hasNextPage}}
+        <a class="page-btn" href="/airbnb_hbs/list?page={{add currentPage 1}}">Next →</a>
+        {{/if}}
+    </div>
+
+</div>

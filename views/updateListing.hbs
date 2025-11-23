@@ -1,0 +1,44 @@
+<h2 class="gold">Update Listing</h2>
+
+{{!-- SEARCH CARD --}}
+<div class="neo-card update-search-card">
+    <h3 class="gold">Search Listing by ID</h3>
+
+    <form method="get" action="/airbnb_hbs/update" class="neo-form">
+
+        <div class="form-group">
+            <label class="neo-label">Listing ID</label>
+            <input type="text" name="id" value="{{queryId}}" class="neo-input" placeholder="Enter ID..." required>
+        </div>
+
+        <button type="submit" class="btn search-btn">Search ✦</button>
+
+    </form>
+</div>
+
+{{#if listing}}
+
+<hr class="neo-divider">
+
+<h3 class="gold">Editing Listing: {{listing.id}}</h3>
+
+<div class="neo-card update-form-card">
+
+    <form action="/airbnb_hbs/update/{{listing.id}}" method="post" class="neo-form">
+
+        <div class="form-group">
+            <label class="neo-label">Name</label>
+            <input type="text" name="NAME" class="neo-input" value="{{listing.NAME}}">
+        </div>
+
+        <div class="form-group">
+            <label class="neo-label">Price</label>
+            <input type="text" name="price" class="neo-input" value="{{listing.price}}">
+        </div>
+
+        <button type="submit" class="btn update-btn-big">Update Listing ✦</button>
+
+    </form>
+</div>
+
+{{/if}}

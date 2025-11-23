@@ -1,0 +1,87 @@
+<h2 class="gold">Search Airbnb Listing</h2>
+
+<div class="neo-card neo-search-card">
+
+    <form method="get" action="/airbnb_hbs/search" class="neo-form">
+
+        {{!-- Search Method --}}
+        <label class="neo-label">Search By</label>
+        <select name="method" id="methodSelect" class="neo-input" onchange="toggleInput()">
+            <option value="">-- Select Option --</option>
+            <option value="id" {{#if (eq method "id")}}selected{{/if}}>Listing ID</option>
+            <option value="name" {{#if (eq method "name")}}selected{{/if}}>Listing Name</option>
+        </select>
+
+        {{!-- Dynamic Input --}}
+        <div id="inputBox" class="neo-dynamic-input">
+            {{#if method}}
+                <input type="text" name="value" class="neo-input"
+                       placeholder="Enter {{method}}…" value="{{value}}">
+            {{/if}}
+        </div>
+
+        <button type="submit" class="btn search-btn">Search ✦</button>
+
+    </form>
+</div>
+
+<hr class="neo-divider">
+
+{{!-- RESULT SECTION --}}
+{{#if listing}}
+
+<div class="neo-card neo-result-card">
+
+    <h3 class="gold" style="margin-bottom: 14px;">Listing Found ✓</h3>
+
+    <div class="detail-row">
+        <span class="detail-label">ID</span>
+        <span class="detail-value">{{listing.id}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Name</span>
+        <span class="detail-value">{{listing.NAME}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Neighbourhood</span>
+        <span class="detail-value">{{listing.neighbourhood}}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Price</span>
+        <span class="detail-value">{{listing.price}}</span>
+    </div>
+
+    <a href="/airbnb_hbs/view/{{listing.id}}" class="btn view-btn">View Details →</a>
+
+</div>
+
+{{else}}
+
+    {{#if value}}
+    <div class="neo-card neo-noresult-card">
+        <p class="neo-warning-text">
+            ❌ No results found for "<b>{{value}}</b>"
+        </p>
+    </div>
+    {{/if}}
+
+{{/if}}
+
+<script>
+function toggleInput() {
+    const method = document.getElementById("methodSelect").value;
+    const box = document.getElementById("inputBox");
+
+    if (!method) {
+        box.innerHTML = "";
+        return;
+    }
+
+    box.innerHTML = `
+        <input type="text" name="value" class="neo-input" placeholder="Enter ${method}…">
+    `;
+}
+</script>

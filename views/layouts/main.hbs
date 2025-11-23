@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Airbnb App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="neo-body">
+
+    {{!-- HEADER PARTIAL --}}
+    {{> header}}
+
+    {{!-- FUTURISTIC NAVBAR --}}
+    <header class="neo-nav">
+        <div class="neo-nav-left">
+            <h1 class="neo-logo">Airbnb<span>•Neo</span></h1>
+        </div>
+
+        <nav class="neo-menu">
+
+            <a href="/" class="neo-link">Home</a>
+
+            <div class="neo-dropdown">
+                <button class="neo-dropbtn">
+                    Manage Listings <span class="arrow">▾</span>
+                </button>
+
+                <div class="neo-dropdown-panel">
+                    <a href="/airbnb_hbs/list" class="neo-dd-item">All Listings</a>
+                    <a href="/airbnb_hbs/add" class="neo-dd-item">Add Listing</a>
+                    <a href="/airbnb_hbs/search" class="neo-dd-item">Search Listing</a>
+                    <a href="/airbnb_hbs/update" class="neo-dd-item">Update Listing</a>
+                    <a href="/airbnb_hbs/delete" class="neo-dd-item">Delete Listing</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {{!-- MAIN CONTENT ZONE --}}
+    <main class="neo-main">
+        {{{ body }}}
+    </main>
+
+    {{!-- FOOTER PARTIAL --}}
+    {{> footer}}
+
+</body>
+</html>
